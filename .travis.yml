@@ -1,22 +1,23 @@
----
 language: node_js
 node_js:
-  - "4"
-
+- '4'
 sudo: false
-
 cache:
   directories:
-    - node_modules
-
+  - node_modules
 before_install:
-  - npm config set spin false
-  - npm install -g bower
-  - npm install phantomjs-prebuilt
-
+- npm config set spin false
+- npm install -g bower
+- npm install phantomjs-prebuilt
 install:
-  - npm install
-  - bower install
-
+- npm install
+- bower install
 script:
-  - npm test
+- npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: c4XWTQAhUUthAZNRIv32u0u4DEAVkSSJT4w/RtYDU0YpeavdM6uq5R47ZlV/Isf5IRTzfgZPv/wQhldSwUZtbpiutvlv/il8+DHlMSVVFdR+yQ6EfhjVcVJJUu6rIwUmKHLRNrAoO3BifCZ+Sfa7KjjmFSp2x0gzyW9O8L3lF/w2zRTA5cfvfYcKmVlxxorrxXiv25COmJJ5vac+31zCKFtwjpJhzrFINa495/JZosaV9yS56IHr20Dez799OVbPhmTkziLVWnBCsCXZwEubQYDMViwkuQ8jQr2o08VzJBovVjhAfXBKExSQPK4OaJo021pnLZcVzbDwkGOBIVNH4VtA8dnH+VCQBYJkNCGeUE43E4RgFljM1AbiJpumOv2RZc1/vqHfl60VhZl+aGIvQEIxOfgaokvaUFIzPDFUQeJDqoMOPmRzS4xqiUDxQT7k6fSX0D1J4pLa/lTh2XZTK5COIsj1ShA/lnCSi5OnmFeU5o0NYZW38+LFZjaKg59+zznPQf4LKVY9aLdmWJOm/ypgxsKgt4AyVUBdlYiT/Xt3Pct4+IZ15l+l78sKUc5FU+wpigJRdy5zn0qxo/Vhw3AcHwHkc6nAP8ICho9VNUK3FoqrJFmX0LO3IKHvI9Eat2HsMq0OeuaUUL1MynxtkKrV0BLv/php4/4KfZxmN2I=
+  app: writing-ui
+  on:
+    repo: jessedijkstra/writing-ui
